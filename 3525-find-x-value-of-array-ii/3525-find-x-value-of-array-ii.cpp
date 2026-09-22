@@ -1,118 +1,99 @@
 class Solution {
-    struct Node {
-        int l, r, prod;
-        int cnt[5];
+    int k, n;
+    vector<array<int, 5>> cnt;
+    vector<int> prod;
 
-        Node() {
-            l = r = 0;
-            prod = 1;
-            memset(cnt, 0, sizeof(cnt));
-        }
-    };
+    void pull(int p) {
+        prod[p] = (long long)prod[p << 1] * prod[p << 1 | 1] % k;
 
-    int k;
-    vector<Node> tree;
-
-    Node merge(const Node& a, const Node& b) {
-        Node res;
-
-        res.prod = (long long)a.prod * b.prod % k;
+        for (int i = 0; i < k; i++)
+            cnt[p][i] = cnt[p << 1][i];
 
         for (int i = 0; i < k; i++) {
-            res.cnt[i] = a.cnt[i];
+            int r = (long long)prod[p << 1] * i % k;
+            cnt[p][r] += cnt[p << 1 | 1][i];
         }
-
-        for (int i = 0; i < k; i++) {
-            int rem = (long long)a.prod * i % k;
-            res.cnt[rem] += b.cnt[i];
-        }
-
-        return res;
     }
 
     void build(int p, int l, int r, vector<int>& nums) {
-        tree[p].l = l;
-        tree[p].r = r;
-
         if (l == r) {
-            int v = nums[l] % k;
-
-            tree[p].prod = v;
-            tree[p].cnt[v] = 1;
-
+            prod[p] = nums[l] % k;
+            cnt[p][prod[p]] = 1;
             return;
         }
 
-        int mid = (l + r) / 2;
+        int m = (l + r) >> 1;
 
-        build(p * 2, l, mid, nums);
-        build(p * 2 + 1, mid + 1, r, nums);
+        build(p << 1, l, m, nums);
+        build(p << 1 | 1, m + 1, r, nums);
 
-        tree[p] = merge(tree[p * 2], tree[p * 2 + 1]);
-        tree[p].l = l;
-        tree[p].r = r;
+        pull(p);
     }
 
-    void update(int p, int idx, int value) {
-        if (tree[p].l == tree[p].r) {
-            value %= k;
+    void update(int p, int l, int r, int idx, int val) {
+        if (l == r) {
+            fill(cnt[p].begin(), cnt[p].end(), 0);
 
-            tree[p].prod = value;
-
-            memset(tree[p].cnt, 0, sizeof(tree[p].cnt));
-            tree[p].cnt[value] = 1;
+            prod[p] = val % k;
+            cnt[p][prod[p]] = 1;
 
             return;
         }
 
-        int mid = (tree[p].l + tree[p].r) / 2;
+        int m = (l + r) >> 1;
 
-        if (idx <= mid)
-            update(p * 2, idx, value);
+        if (idx <= m)
+            update(p << 1, l, m, idx, val);
         else
-            update(p * 2 + 1, idx, value);
+            update(p << 1 | 1, m + 1, r, idx, val);
 
-        Node res = merge(tree[p * 2], tree[p * 2 + 1]);
-
-        tree[p].prod = res.prod;
-
-        for (int i = 0; i < k; i++) {
-            tree[p].cnt[i] = res.cnt[i];
-        }
+        pull(p);
     }
 
-    Node query(int p, int l, int r) {
-        if (l <= tree[p].l && tree[p].r <= r) {
-            return tree[p];
+    pair<array<int, 5>, int> query(int p, int l, int r, int ql) {
+        if (l >= ql)
+            return {cnt[p], prod[p]};
+
+        int m = (l + r) >> 1;
+
+        if (ql <= m) {
+            auto left = query(p << 1, l, m, ql);
+
+            if (m + 1 > r)
+                return left;
+
+            auto right = query(p << 1 | 1, m + 1, r, ql);
+
+            array<int, 5> res{};
+
+            for (int i = 0; i < k; i++)
+                res[i] = left.first[i];
+
+            for (int i = 0; i < k; i++) {
+                int rem = (long long)left.second * i % k;
+                res[rem] += right.first[i];
+            }
+
+            int pdt = (long long)left.second * right.second % k;
+
+            return {res, pdt};
         }
 
-        int mid = (tree[p].l + tree[p].r) / 2;
-
-        if (r <= mid) {
-            return query(p * 2, l, r);
-        }
-
-        if (l > mid) {
-            return query(p * 2 + 1, l, r);
-        }
-
-        Node left = query(p * 2, l, r);
-        Node right = query(p * 2 + 1, l, r);
-
-        return merge(left, right);
+        return query(p << 1 | 1, m + 1, r, ql);
     }
 
 public:
-    vector<int> resultArray(vector<int>& nums, int k, vector<vector<int>>& queries) {
-        this->k = k;
+    vector<int> resultArray(vector<int>& nums, int K, vector<vector<int>>& queries) {
+        k = K;
+        n = nums.size();
 
-        int n = nums.size();
-
-        tree.resize(4 * n + 5);
+        cnt.resize(4 * n + 5);
+        prod.resize(4 * n + 5);
 
         build(1, 0, n - 1, nums);
 
         vector<int> ans;
+        ans.reserve(queries.size());
 
         for (auto& q : queries) {
             int index = q[0];
@@ -120,11 +101,11 @@ public:
             int start = q[2];
             int x = q[3];
 
-            update(1, index, value);
+            update(1, 0, n - 1, index, value);
 
-            Node res = query(1, start, n - 1);
+            auto res = query(1, 0, n - 1, start);
 
-            ans.push_back(res.cnt[x]);
+            ans.push_back(res.first[x]);
         }
 
         return ans;
