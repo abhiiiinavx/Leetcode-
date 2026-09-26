@@ -8,21 +8,23 @@ public:
 
         string ans;
 
-        for (int i = 0; i < s.size(); ) {
+        for (int i = 0; i < s.size(); i++) {
             if (s[i] == '(') {
-                int j = s.find(')', i);
-                string key = s.substr(i + 1, j - i - 1);
+                string key;
+
+                i++;
+                while (s[i] != ')') {
+                    key += s[i];
+                    i++;
+                }
 
                 if (mp.count(key))
                     ans += mp[key];
                 else
                     ans += '?';
-
-                i = j + 1;
             } 
             else {
                 ans += s[i];
-                i++;
             }
         }
 
