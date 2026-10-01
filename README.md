@@ -9,6 +9,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [1658-minimum-operations-to-reduce-x-to-zero](https://github.com/abhiiiinavx/Leetcode-/tree/master/1658-minimum-operations-to-reduce-x-to-zero) |
 | [1807-evaluate-the-bracket-pairs-of-a-string](https://github.com/abhiiiinavx/Leetcode-/tree/master/1807-evaluate-the-bracket-pairs-of-a-string) |
 | [2267-check-if-there-is-a-valid-parentheses-string-path](https://github.com/abhiiiinavx/Leetcode-/tree/master/2267-check-if-there-is-a-valid-parentheses-string-path) |
+| [3414-maximum-score-of-non-overlapping-intervals](https://github.com/abhiiiinavx/Leetcode-/tree/master/3414-maximum-score-of-non-overlapping-intervals) |
 | [3483-unique-3-digit-even-numbers](https://github.com/abhiiiinavx/Leetcode-/tree/master/3483-unique-3-digit-even-numbers) |
 | [3525-find-x-value-of-array-ii](https://github.com/abhiiiinavx/Leetcode-/tree/master/3525-find-x-value-of-array-ii) |
 | [3550-smallest-index-with-digit-sum-equal-to-index](https://github.com/abhiiiinavx/Leetcode-/tree/master/3550-smallest-index-with-digit-sum-equal-to-index) |
@@ -37,6 +38,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [1621-number-of-sets-of-k-non-overlapping-line-segments](https://github.com/abhiiiinavx/Leetcode-/tree/master/1621-number-of-sets-of-k-non-overlapping-line-segments) |
 | [2267-check-if-there-is-a-valid-parentheses-string-path](https://github.com/abhiiiinavx/Leetcode-/tree/master/2267-check-if-there-is-a-valid-parentheses-string-path) |
 | [2472-maximum-number-of-non-overlapping-palindrome-substrings](https://github.com/abhiiiinavx/Leetcode-/tree/master/2472-maximum-number-of-non-overlapping-palindrome-substrings) |
+| [3414-maximum-score-of-non-overlapping-intervals](https://github.com/abhiiiinavx/Leetcode-/tree/master/3414-maximum-score-of-non-overlapping-intervals) |
 ## Math
 |  |
 | ------- |
@@ -98,6 +100,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | ------- |
 | [1477-find-two-non-overlapping-sub-arrays-each-with-target-sum](https://github.com/abhiiiinavx/Leetcode-/tree/master/1477-find-two-non-overlapping-sub-arrays-each-with-target-sum) |
 | [1658-minimum-operations-to-reduce-x-to-zero](https://github.com/abhiiiinavx/Leetcode-/tree/master/1658-minimum-operations-to-reduce-x-to-zero) |
+| [3414-maximum-score-of-non-overlapping-intervals](https://github.com/abhiiiinavx/Leetcode-/tree/master/3414-maximum-score-of-non-overlapping-intervals) |
 ## Sliding Window
 |  |
 | ------- |
@@ -108,6 +111,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | ------- |
 | [1096-brace-expansion-ii](https://github.com/abhiiiinavx/Leetcode-/tree/master/1096-brace-expansion-ii) |
 | [1520-maximum-number-of-non-overlapping-substrings](https://github.com/abhiiiinavx/Leetcode-/tree/master/1520-maximum-number-of-non-overlapping-substrings) |
+| [3414-maximum-score-of-non-overlapping-intervals](https://github.com/abhiiiinavx/Leetcode-/tree/master/3414-maximum-score-of-non-overlapping-intervals) |
 ## Geometry
 |  |
 | ------- |
