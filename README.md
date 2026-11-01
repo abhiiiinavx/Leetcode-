@@ -4,6 +4,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Array
 |  |
 | ------- |
+| [0453-minimum-moves-to-equal-array-elements](https://github.com/abhiiiinavx/Leetcode-/tree/master/0453-minimum-moves-to-equal-array-elements) |
 | [0835-image-overlap](https://github.com/abhiiiinavx/Leetcode-/tree/master/0835-image-overlap) |
 | [1477-find-two-non-overlapping-sub-arrays-each-with-target-sum](https://github.com/abhiiiinavx/Leetcode-/tree/master/1477-find-two-non-overlapping-sub-arrays-each-with-target-sum) |
 | [1569-number-of-ways-to-reorder-array-to-get-same-bst](https://github.com/abhiiiinavx/Leetcode-/tree/master/1569-number-of-ways-to-reorder-array-to-get-same-bst) |
@@ -58,6 +59,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Math
 |  |
 | ------- |
+| [0453-minimum-moves-to-equal-array-elements](https://github.com/abhiiiinavx/Leetcode-/tree/master/0453-minimum-moves-to-equal-array-elements) |
 | [1401-circle-and-rectangle-overlapping](https://github.com/abhiiiinavx/Leetcode-/tree/master/1401-circle-and-rectangle-overlapping) |
 | [1569-number-of-ways-to-reorder-array-to-get-same-bst](https://github.com/abhiiiinavx/Leetcode-/tree/master/1569-number-of-ways-to-reorder-array-to-get-same-bst) |
 | [1621-number-of-sets-of-k-non-overlapping-line-segments](https://github.com/abhiiiinavx/Leetcode-/tree/master/1621-number-of-sets-of-k-non-overlapping-line-segments) |
